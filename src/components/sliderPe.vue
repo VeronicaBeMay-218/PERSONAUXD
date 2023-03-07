@@ -5,19 +5,5 @@
   </template>
   <script>
  
-  export default {
-    data() {
-      return {
-        value: [0, 100]
-      }
-    },
-    components: {
-      VueRangeSlider
-    },
-    created() {
-      this.min = 0
-      this.max = 250
-      this.formatter = value => `￥${value}`
-    }
-  }
+  
   </script> 

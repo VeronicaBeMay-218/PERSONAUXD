@@ -11,9 +11,9 @@ import inputEdad from './inputEdad.vue';
 import selectCivil from './selectCivil.vue';
 import inputNor from './inputNor.vue';
 import sliderPe from './sliderPe.vue';
+import inputSlider from './inputSlider.vue';
 
-import 'vue-range-component/dist/vue-range-slider.css'
-import VueRangeSlider from 'vue-range-component'
+inputSlider
 
     export default {
     data() {
@@ -68,7 +68,7 @@ import VueRangeSlider from 'vue-range-component'
     
 
     
-    components: { BntEnviar , inputF, inputEdad, selectCivil, inputNor, sliderPe}
+    components: { BntEnviar , inputF, inputEdad, selectCivil, inputNor, inputSlider}
 }
     </script>
     
@@ -170,30 +170,27 @@ import VueRangeSlider from 'vue-range-component'
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Personalidad01
       </label>
-      <sliderPe v-model="personalidad01"/>
+      <inputSlider v-model="personalidad01"/>
     </div>
    
     <div class="w-full md:w-1/2 px-">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         Personalidad02
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="personalida02" type="text" v-model="personalida02">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputSlider v-model="personalidad02"/>
     </div>
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Personalidad03
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="personalida03" type="text" v-model="personalida03">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputSlider v-model="personalidad03"/>
     </div>
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Personalidad04
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="personalida04" type="text" v-model="personalida04">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputSlider v-model="personalidad04"/>
     </div>
 
   </div>
