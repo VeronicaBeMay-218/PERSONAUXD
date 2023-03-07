@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import PlantillaP from '../components/PlantillaP.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <PlantillaP />
   </main>
 </template>
