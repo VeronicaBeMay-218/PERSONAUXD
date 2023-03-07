@@ -9,16 +9,31 @@ import BntEnviar from './bntEnviar.vue';
 import inputF from './inputF.vue';
 import inputEdad from './inputEdad.vue';
 import selectCivil from './selectCivil.vue';
-    
+import inputNor from './inputNor.vue';
+import sliderPe from './sliderPe.vue';
+
+import 'vue-range-component/dist/vue-range-slider.css'
+import VueRangeSlider from 'vue-range-component'
 
     export default {
     data() {
         return {
             nombre: "",
-            estado_civil: "",
+            edad: "",
+            estadoCivil: "",
             trabajo: "",
-            personalidad: "",
-            personalidades: [],
+            residencia: "",
+            cita: "",
+            citaAutor: "",
+            bio: "",
+            personalidad01: "",
+            personalidad02: "",
+            personalidad03: "",
+            personalidad04: "",
+            
+            objetivos: [],
+            frustraciones: [],
+            motivaciones: [],
             marcas: "",
         };
     },
@@ -27,6 +42,17 @@ import selectCivil from './selectCivil.vue';
             axios
                 .post("/api/guardarPersonasUxd.php", {
                 nombre: this.nombre,
+                edad: this.edad,
+                estadoCivil: this.estadoCivil,
+                trabajo: this.trabajo,
+                residencia: this.residencia,
+                cita: this.cita,
+                citaAutor: this.citaAutor,
+                bio: this.bio,
+                personalidad01: this.personalidad01,
+                personalidad02: this.personalidad02,
+                personalidad03: this.personalidad03,
+                personalidad04: this.personalidad04,
                 objetivos: this.objetivos,
                 frustraciones: this.frustraciones,
                 motivaciones: this.motivaciones,
@@ -38,7 +64,11 @@ import selectCivil from './selectCivil.vue';
             });
         },
     },
-    components: { BntEnviar , inputF, inputEdad, selectCivil}
+
+    
+
+    
+    components: { BntEnviar , inputF, inputEdad, selectCivil, inputNor, sliderPe}
 }
     </script>
     
@@ -99,8 +129,7 @@ import selectCivil from './selectCivil.vue';
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Trabajo
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  id="trabajo" type="text" v-model="trabajo">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputNor v-model="trabajo"/>
     </div>
 
 
@@ -108,8 +137,7 @@ import selectCivil from './selectCivil.vue';
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Residencia
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="residencia" type="text" v-model="residencia">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputNor v-model="residencia"/>
     </div>
   </div>
 
@@ -118,23 +146,20 @@ import selectCivil from './selectCivil.vue';
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Cita
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="cita" type="text" v-model="cita">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputNor v-model="cita"/>
     </div>
    
     <div class="w-full md:w-1/2 px-">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         Cita Autor
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="citaAutor" type="text" v-model="citaAutor">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputNor v-model="citaAutor"/>
     </div>
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Bio
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="bio" type="text" v-model="bio">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <inputNor v-model="bio"/>
     </div>
 
   </div>
@@ -145,8 +170,7 @@ import selectCivil from './selectCivil.vue';
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Personalidad01
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="personalida01" type="text" v-model="personalida01">
-      <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
+      <sliderPe v-model="personalidad01"/>
     </div>
    
     <div class="w-full md:w-1/2 px-">
