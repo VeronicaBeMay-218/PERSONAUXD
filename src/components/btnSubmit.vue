@@ -4,7 +4,7 @@ export default {
 }
 </script>
 <template>
-    <button :disabled="desactivar" class="bg-green-500 mx-3 my-2 px-3 py-2 rounded-md disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed hover:bg-amber-500">
+    <button  :disabled="desactivar" class="bg-green-500 mx-3 my-2 px-3 py-2 rounded-md disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed hover:bg-amber-500">
         <div class="flex gap-2 items-start justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="w-6 h-6">

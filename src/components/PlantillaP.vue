@@ -12,6 +12,7 @@ import selectCivil from './selectCivil.vue';
 import inputNor from './inputNor.vue';
 import sliderPe from './sliderPe.vue';
 import inputSlider from './inputSlider.vue';
+import btnSubmit from './btnSubmit.vue';
 
 inputSlider
 
@@ -20,21 +21,7 @@ inputSlider
         return {
             nombre: "",
             edad: "",
-            estadoCivil: "",
-            trabajo: "",
-            residencia: "",
-            cita: "",
-            citaAutor: "",
-            bio: "",
-            personalidad01: "",
-            personalidad02: "",
-            personalidad03: "",
-            personalidad04: "",
-            
-            objetivos: [],
-            frustraciones: [],
-            motivaciones: [],
-            marcas: "",
+         
         };
     },
     methods: {
@@ -43,20 +30,7 @@ inputSlider
                 .post("/api/guardarPersonasUxd.php", {
                 nombre: this.nombre,
                 edad: this.edad,
-                estadoCivil: this.estadoCivil,
-                trabajo: this.trabajo,
-                residencia: this.residencia,
-                cita: this.cita,
-                citaAutor: this.citaAutor,
-                bio: this.bio,
-                personalidad01: this.personalidad01,
-                personalidad02: this.personalidad02,
-                personalidad03: this.personalidad03,
-                personalidad04: this.personalidad04,
-                objetivos: this.objetivos,
-                frustraciones: this.frustraciones,
-                motivaciones: this.motivaciones,
-                marcas: this.marcas,
+                
                 //completar las variables, estas deben llamarse como las que se recibirán en el backend sin el símbolo del dolar $
             })
                 .then((response) => {
@@ -68,7 +42,7 @@ inputSlider
     
 
     
-    components: { BntEnviar , inputF, inputEdad, selectCivil, inputNor, inputSlider}
+    components: { BntEnviar , inputF, inputEdad, selectCivil, inputNor, inputSlider, btnSubmit}
 }
     </script>
     
@@ -92,7 +66,7 @@ inputSlider
 
   <div>
   
-    <form class="">
+    
      
   <div class="flex flex-nowrap">
 
@@ -103,7 +77,7 @@ inputSlider
       </label>
 
     <div>
-      <inputF  v-model="nombre"/>
+      <inputF/>
     </div>
    
        
@@ -114,7 +88,7 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         Edad
       </label>
-      <inputEdad v-model="edad"/>
+      <inputEdad/>
       
       </div>
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -129,7 +103,7 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Trabajo
       </label>
-      <inputNor v-model="trabajo"/>
+      <inputNor/>
     </div>
 
 
@@ -137,7 +111,7 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Residencia
       </label>
-      <inputNor v-model="residencia"/>
+      <inputNor/>
     </div>
   </div>
 
@@ -146,20 +120,20 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Cita
       </label>
-      <inputNor v-model="cita"/>
+      <inputNor/>
     </div>
    
     <div class="w-full md:w-1/2 px-">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         Cita Autor
       </label>
-      <inputNor v-model="citaAutor"/>
+      <inputNor/>
     </div>
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Bio
       </label>
-      <inputNor v-model="bio"/>
+      <inputNor/>
     </div>
 
   </div>
@@ -170,27 +144,27 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Personalidad01
       </label>
-      <inputSlider v-model="personalidad01"/>
+      <inputSlider/>
     </div>
    
     <div class="w-full md:w-1/2 px-">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         Personalidad02
       </label>
-      <inputSlider v-model="personalidad02"/>
+      <inputSlider/>
     </div>
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Personalidad03
       </label>
-      <inputSlider v-model="personalidad03"/>
+      <inputSlider/>
     </div>
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Personalidad04
       </label>
-      <inputSlider v-model="personalidad04"/>
+      <inputSlider/>
     </div>
 
   </div>
@@ -203,7 +177,7 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
         Objetivos
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="objetivos" type="text" v-model="objetivos">
+      <inputNor/>
       <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
     </div>
 
@@ -211,7 +185,7 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
         Frustraciones
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="frustraciones" type="text" v-model="frustraciones">
+      <inputNor/>
       <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
     </div>
    
@@ -219,13 +193,13 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
        Motivaciones
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" v-model="motivaciones">
+      <inputNor/>
       <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
       
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
        porcentaje
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="porcentaje" type="text" v-model="porcentaje">
+      <inputNor/>
       <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
     
     </div>
@@ -237,20 +211,20 @@ inputSlider
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
         Marcas
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="marcas" type="text" v-model="marcas">
+      <inputNor/>
       <p class="text-red-500 text-xs italic">Por favor rellene este campo.</p>
     </div>
     
   </div>
 
-<div  @click="agregarUsuario">
- <BntEnviar/>
+<div>
+ <btnSubmit  @click="agregarUsuario()"/>
 </div>
 
  <div>
 
  </div>
-</form>
+
   </div>
 </div>
 </template>
