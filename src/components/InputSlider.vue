@@ -1,24 +1,20 @@
 <script>
+
 export default {
     
     data() {
         return {
-            slider: 50
+            porcentaje: 50
         }
     },
     methods: {
-        enviar() {
-            this.$emit('person',this.slider)
+        PasarDato() {
+            this.$emit('porcentaje',this.porcentaje)
         }
     }
 }
 </script>
 
 <template>
-    <div>
-        <slot></slot> ({{ slider }}%)
-        <br>
-        <input class="accent-red-500 transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200" type="range"  min="0" max="100" v-model="slider" @change="enviar">
-
-    </div>
+    <input type="range" v-model="porcentaje" class="w-full  rounded-lg transition-colors focus:shadow focus:bg-white focus:outline-none" id="porcentaje" placeholder="" typeof="slider" min="0" max="100" @input="PasarDato"/>
 </template>

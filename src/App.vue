@@ -1,85 +1,47 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
+import Titulo from "./components/Titulo.vue";
 </script>
 
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+<template class="flex-col justify-center w-full h-full p-2">
 
-    <div class="wrapper">
-      <HomeView/>
+<div class="w-full h-full  from-purple-600 justify-items-center">
+      
+      <header>
+  
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <nav class="p-5 shadow md:flex md:items-center md:justify-between">
+      <div class="flex justify-between items-center">
+      
+       
+      </div>
+  
+      <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+        <li class="mx-4 my-6 md:my-0">
+          <RouterLink to="/">Inicio</RouterLink>
+          </li>
+        <li class="mx-4 my-6 md:my-0">
+          <RouterLink to="/RegistroPersonas">Registro</RouterLink>
+         </li>
+        <li class="mx-4 my-6 md:my-0">
+          <RouterLink to="/ListaPersonas">Personas</RouterLink>
+          </li>
 
-  <RouterView />
-</template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+  
+  
+      </ul>
+    </nav>
+        
+        
+        <div class="w-full">
+  
+          <Titulo msg="Personas UX" />
+  
+        </div>
+  
+      </header>
+  
+  
+    <RouterView />
+  </div>
+  </template>

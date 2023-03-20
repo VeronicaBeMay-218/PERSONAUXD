@@ -1,10 +1,9 @@
 <script setup>
-import PlantillaP from '../components/PlantillaP.vue'
-import Formulario from '../components/Formulario.vue'
+import Bienvenida from '../components/Bienvenida.vue'
 </script>
 
 <template>
   <main>
-    <PlantillaP/>
+    <Bienvenida />
   </main>
 </template>
