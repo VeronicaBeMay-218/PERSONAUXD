@@ -7,6 +7,9 @@ export default {
 
   data() {
     return {
+
+      showModal: false,
+      showModal2: false,
       //variables de retorno  
       //para lista de personas
       personas: [],
@@ -140,11 +143,17 @@ export default {
   <!--Buscador-->
   <div class="">
     <label for="">Buscar</label>
-    <input class="h-12 wl-5 px-7" type="text" v-model="buscar"  placeholder="Buscar por id" @input = "buscador(buscar)">
+    <input class="h-12 wl-5 px-7" type="text" v-model="buscar"  placeholder="Buscar por id" @input = "showModal2= true , buscador(buscar)">
 
   </div>
   <!--Resultados Buscador-->
 
+
+
+
+
+  <Transition name="fad">
+<div class="modal" v-if="showModal2">
   <!--si no recibe true en la variable mostrarBuscados
       ENCONTRO VARIOS PERSONAS POR SU ID-->
       <div v-if="mostrarBuscados" class="m-auto w-3/4 mb-5">
@@ -475,6 +484,12 @@ export default {
 </div>
 
 
+<button @click="showModal2= false">Cerrar</button>
+</div>
+
+
+</Transition>
+
    
 
 
@@ -497,7 +512,16 @@ export default {
 
 
 
-<!--TABLA-->
+
+
+
+
+
+
+
+
+
+<!--CARDS DE PERSONAS-->
   <!--Recorre la nueva lista y por cada personaje que encuentra-->    
   <div class="grid  mx-auto p-1 border-4 rounded-lg  border-red-50 ">
 
@@ -507,13 +531,6 @@ export default {
     
 
   <div class="shadow-2xl">
-
-  
-
-
-
-
- 
 
     <div class="text-center" >
     <div class="flex items-center font-bold ... w-120 rounded overflow-hidden shadow-lg p-12 m-10 snap-start bg-[]">
@@ -526,7 +543,7 @@ export default {
   
 
       <li v-for="(p, index) in personas" class="text-sm w-120 rounded-full overflow-visible shadow-lg p- m-1 snap-start bg-[#bfdbfe]">
-        <h1 class=" px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-100"> ID: {{ index += 1 }} </h1>
+        <h1 class=" px-6 py-4 font-medium text-blue-900 whitespace-nowrap dark:text-blue-100"> {{ index += 1 }} </h1>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="37" viewBox="0 0 33 37" fill="none">
 <rect width="33" height="37" fill="url(#pattern0)"/>
 <defs>
@@ -540,9 +557,10 @@ export default {
     <a>id:{{ p.id }} {{ p.nombre }} </a> 
    
           <h1 class=" px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-100">{{ p.nombre }}</h1>
-          <h1 class=" px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-100"> <button @click="InfoPer(p.id)"> VER </button> </h1>
+          
+            <button @click="showModal= true , InfoPer(p.id) ">Ver</button>
 
-    
+          
   </li> 
         
     
@@ -559,12 +577,8 @@ export default {
 
 
 
-  </div>
-
-
-
-
-
+  <Transition name="fad">
+<div class="modal" v-if="showModal">
 
 
    <!--Informacion sólo Uno-->
@@ -933,6 +947,29 @@ export default {
 
       
 
+
+<button @click="showModal= false">Cerrar</button>
+</div>
+
+
+</Transition>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        
               
       
@@ -946,3 +983,36 @@ export default {
   
 
 </template>
+
+
+
+<style>
+*{
+margin:0;
+padding: 0;
+
+}
+
+#app{
+
+width: 100%;
+height: 100%;
+overflow: hidden;
+
+}
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50,-50);
+  background: #d1e3e9 ;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  z-index: 101;
+
+}
+
+
+</style>
