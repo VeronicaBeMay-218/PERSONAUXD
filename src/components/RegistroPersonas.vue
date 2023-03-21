@@ -44,6 +44,7 @@ export default {
 
         NuevoMot: "",
         NuevoPorcMot: "0",
+        
         Motivaciones: "",
 
         Marcas: "",
@@ -245,7 +246,7 @@ export default {
     <div class="w-4/5 m-w-450 m-auto h-auto rounded-lg bg-white py-8 px-7 mb-2">
       
     <!-- component card -->
-    <div class="bg-[#bfdbfe] rounded overflow-hidden shadow-lg">
+    <div class=" bg-blue-100 rounded overflow-hidden shadow-lg">
 
 <form class="w-full mt-6 ">
         
