@@ -155,6 +155,9 @@ export default {
     <input class="w-full appearance-none text-black text-opacity-100 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " type="text" v-model="buscar"  placeholder="Buscar por id" @input = "showModal2= true , buscador(buscar)">
 
   </div>
+
+
+  
   <!--Resultado de Buscador-->
 
 
@@ -572,6 +575,8 @@ export default {
 
   <Transition name="fad">
 <div class="modal" v-if="showModal">
+
+
 
 
    <!--Informacion sólo Uno-->

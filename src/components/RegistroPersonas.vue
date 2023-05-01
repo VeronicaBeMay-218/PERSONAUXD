@@ -6,6 +6,10 @@ import TextA from './TextA.vue';
 import InputSlider from '../components/InputSlider.vue';
 import InputArray from '../components/InputTextArray.vue';
 import imgUsuario from '../components/imgUsuario.vue';
+import InputSliderMot from '../components/InputSliderMot.vue';
+import InputMot from '../components/InputMot.vue';
+
+
 //import InputArray2 from '../components/InputTextArray2.vue';
 
 import axios from 'axios';
@@ -15,10 +19,10 @@ import axios from 'axios';
 export default {
   components:{
     //nombre con el que se llama a los componentes
-    BotonEnviar, InputT, TextA, InputSlider, InputArray, imgUsuario, //InputArray2
+    BotonEnviar, InputT, TextA, InputSlider, InputArray,InputSliderMot,InputMot, imgUsuario, //InputArray2
   },
   
-  emits: ['dataIT, dataTA, porcentaje, dataA'],
+  emits: ['dataIT, dataTA, porcentaje, dataA','valorInput'],
 
     data() {
       return {
@@ -42,12 +46,16 @@ export default {
         NuevoFrus: "",
         ArrayFrustraciones: [{value:''}],
 
-        NuevoMot: "",
-        NuevoPorcMot: "0",
-        
-        Motivaciones: "",
+        Motivaciones: [],
+            Motivaciones2: [],
+            Motivaciones3: [],
+            Motivaciones4: [],
 
         Marcas: "",
+        ContadorFrustraciones: 1,
+            ContadorMotivaciones: 1,
+        DatoAgregarMotivacion: false,
+        DatoAgregar2Motivacion: false,
 
         //variable validaciones
         validar:false
@@ -122,11 +130,58 @@ export default {
           this.ArrayFrustraciones[index] = {value: s}
           
         }, 
+
+
         //Motivaciones
-        Motivacionees(s, po , index){
-          this.ArrayMotivaciones[index] = {value: s,porcent: po }
-          //console.log(this.ArrayMotivaciones)
-        },
+
+
+        AgregarInput3(s){
+                this.ContadorMotivaciones=this.ContadorMotivaciones+s
+                if(this.ContadorMotivaciones==2){
+                    this.DatoAgregarMotivacion=true
+                }
+                if(this.ContadorMotivaciones==3){
+                    this.DatoAgregar2Motivacion=true
+                }
+            },
+            AgregarMotivaciones(s){
+                this.Motivaciones2=s
+                this.Motivaciones={value: s,'porcentaje': this.ValMotivacion}
+                console.log(this.Motivaciones)
+
+            },
+            AgregarMotivaciones2(s){
+                this.Motivaciones3=s
+                this.Motivaciones=[{value: this.Motivaciones2,'porcentaje': this.ValMotivacion},{value: this.Motivaciones3,'porcentaje':s}]
+                console.log(this.Motivaciones3)
+
+            },
+            AgregarMotivaciones3(s){
+                this.Motivaciones4=s
+                this.Motivaciones=[{value: this.Motivaciones2},{value: this.Motivaciones3},{value: this.Motivaciones4}]
+
+                console.log(this.Motivaciones4)
+                console.log(this.Motivaciones)
+
+
+            },
+
+            ValorMotivacion(s){
+                this.ValMotivacion=s;
+                this.Motivaciones={value: this.Motivaciones2,'porcentaje':s}
+                console.log(this.Motivaciones);
+            },
+            ValorMotivacion2(s){
+                this.ValMotivacion2=s;
+                this.Motivaciones=[{value: this.Motivaciones2,'porcentaje': this.ValMotivacion},{value: this.Motivaciones3,'porcentaje': this.ValMotivacion2}]
+                
+                
+            },
+            ValorMotivacion3(s){
+                this.ValMotivacion3=s;
+                this.Motivaciones=[{value: this.Motivaciones2,'porcentaje': this.ValMotivacion},{value: this.Motivaciones3,'porcentaje': this.ValMotivacion2},{value: this.Motivaciones4,'porcentaje': this.ValMotivacion3}]
+                console.log(this.Motivaciones);
+            },
 
         //Función para enviar informacion de una persona
         Registrar() {
@@ -360,14 +415,14 @@ export default {
 
 
           <div class="mb-3 flex items-center justify-between px-1 md:items-start">
-            <div class="w-full mt-4">
 
 
-              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Motivaciones  
-              </label>
-              <input type="text" v-model="Motivaciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Motivaciones" placeholder="Separa por comas"/>
-            </div>
+
+
+
+
+
+            
             
             <div class="w-full mt-4">
 
@@ -511,6 +566,69 @@ export default {
                     <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                     
                     <p class="text-base font-medium text-navy-700 dark:text-white">
+
+
+
+
+                      <div class="">
+                    <div class="md:w-1/3">
+                      <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+               Motivaciones:
+              </label>
+                        
+                    </div>
+                    <div class="md:w-2/3">
+                    
+                        <TextA @dataTA = "AgregarMotivaciones"  ></TextA>
+                        <InputSlider @porcentaje="ValorMotivacion">
+                            
+                            <h3 class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4">Porcentaje</h3>
+                        
+                        </InputSlider>
+                    </div>
+                    <div class="md:w-2/3" v-show=this.DatoAgregarMotivacion >
+                        <TextA @dataA="AgregarMotivaciones2"  ></TextA>
+                        <InputSliderMot @porcentaje="ValorMotivacion2">
+                            
+                            <h3 class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4">Porcentaje</h3>
+                        
+                        </InputSliderMot>
+                    </div>
+                    <div class="md:w-2/3" v-show=this.DatoAgregar2Motivacion >
+                        <TextA  @dataA="AgregarMotivaciones3"  ></TextA>
+                        <InputSliderMot @porcentaje="ValorMotivacion3">
+                            
+                            <h3 class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4">Porcentaje</h3>
+                        
+                        </InputSliderMot>
+                    </div>
+                    
+
+
+                    <div >
+                            <BotonEnviar @click="AgregarInput3(1)" class="" type="button">
+                                    Agregar
+                            </BotonEnviar>
+                        </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <!-- Objetivos -->
             <div class=" ">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
@@ -519,6 +637,7 @@ export default {
               <div v-for="(obj, index) in ArrayObjetivos">
                 <InputArray @dataA="Objetivoos" :index="index"> </InputArray>
               </div>
+              
               <BotonEnviar v-on:click.prevent="this.ArrayObjetivos.push(NuevoObje)"> Agregar </BotonEnviar>
             </div>
                     </p>
@@ -538,6 +657,11 @@ export default {
               <BotonEnviar v-on:click.prevent="this.ArrayFrustraciones.push(NuevoFrus)"> Agregar </BotonEnviar>
             </div>
             
+
+
+
+
+         
 
 
                     </div>
