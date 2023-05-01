@@ -316,7 +316,7 @@ export default {
                 <div class="mt-2 mb-8 w-full">
                     <div class="relative w-full">
 
-                      <imgUsuario></imgUsuario>
+                     <imgUsuario/>
                       
                     </div>
                     <div class="mb-3 flex items-center justify-between px-1 md:items-start">
@@ -579,7 +579,7 @@ export default {
                     </div>
                     <div class="md:w-2/3">
                     
-                        <TextA @dataTA = "AgregarMotivaciones"  ></TextA>
+                        <InputMot @inputText = "AgregarMotivaciones"  ></InputMot>
                         <InputSlider @porcentaje="ValorMotivacion">
                             
                             <h3 class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4">Porcentaje</h3>

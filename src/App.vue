@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import Titulo from "./components/Titulo.vue";
-import imgLogo from './components/imgLogo.vue';
+import imagenChica from './components/imagenChica.vue';
 </script>
 
 <template class="flex-col justify-center w-full h-full p-2">
@@ -10,9 +10,11 @@ import imgLogo from './components/imgLogo.vue';
       
       <header>
        
-        
+        <div>
+          
+        </div>
         <nav class="p-5 shadow md:flex md:items-center md:justify-between">
-          <imgLogo/>
+          <imagenChica></imagenChica>
       <div class="flex justify-between items-center">
       
        
