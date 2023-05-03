@@ -166,12 +166,10 @@ export default {
 
   <Transition name="fad">
 <div class="modal" v-if="showModal2">
-  <!--si no recibe true en la variable mostrarBuscados
-      ENCONTRO VARIOS PERSONAS POR SU ID-->
+  
       <div v-if="mostrarBuscados" class="m-auto w-3/4 mb-5">
    
-   <!--Recorre la nueva lista y por cada personaje que encuentra-->    
-   <!--carta de personaje-->      
+  
 
 
 
@@ -507,7 +505,7 @@ export default {
 
    <!--Muestra mensaje de no existe-->
    <h1 class="text-center text-xl my-5">
-     No existe el usuario que buscas :0
+     El usuario no existe
    </h1>
 
  </div>
@@ -977,6 +975,7 @@ export default {
 
 
 <style>
+
 *{
 margin:0;
 padding: 0;
@@ -1004,5 +1003,44 @@ overflow: hidden;
 
 }
 
-
+.modal {
+  background: #cac2c2;
+  box-shadow: 4px 4px 30px 2px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  }
+  .modal-header,
+  .modal-footer {
+  padding: 10px;
+  display: flex;
+  }
+  .modal-header {
+  border-bottom: 1px solid #eeeeee;
+  color: #4AAE9B;
+  justify-content: space-between;
+  }
+  .modal-footer {
+  border-top: 2px solid #eeeeee;
+  justify-content: flex-end;
+  }
+  .modal-body {
+  position: relative;
+  padding: 30px 20px;
+  }
+  .btn-close {
+  border: 2px solid #ae4a57;;
+  font-size: 25px;
+  padding: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4AAE9B;
+  background: transparent;
+  }
+  .btn-green {
+  color: white;
+  background: #4AAE9B;
+  border: 2px solid #ae4a57;
+  border-radius: 4px;
+  }
 </style>

@@ -217,60 +217,60 @@ export default {
         Validar(){
           //nombre
           if(this.Nombre != "" && !isNaN (this.Nombre) === false && this.Nombre.length <201 && this.Nombre.length > 2 ) {
-            console.log("Nombre correcto")
+            console.log("NOMBRE: SI")
              
             //edad
             if (this.Edad.length < 3 && this.Edad != ""){
-              console.log("Edad correcto")
+              console.log("EDAD: SI")
             }else{
-              console.log("Escribe edad")
+              console.log("ESCRIBE UNA EDAD")
             }
 
             //Estado civil
             if (this.EstadoCivil != ""){
-              console.log("Estado civil correcto")
+              console.log("ESTADO CIVIL:SI")
             }else{
-              console.log("Selecciona estado civil")
+              console.log("SELECCIOA UN ESTADO CIVIL")
               return false
             }
 
             //Trabajo
             if (this.Trabajo.length < 201 && this.Trabajo != "" && !isNaN (this.Trabajo) === false){
-              console.log("Trabajo correcto")
+              console.log("TRABAJO:SI")
             }else{
-              console.log("Escribe un trabajo")
+              console.log("ESCRIBE UN TRABAJO")
               return false
             }
 
             //Residencia
             if (this.Residencia.length < 201 && this.Residencia != "" && !isNaN (this.Residencia) === false){
-              console.log("Residencia correcta")
+              console.log("RESIDENCIA:SI")
             }else{
-              console.log("Escribe una residencia")
+              console.log("ESCRIBE UNA RESIDENCIA")
               return false
             }
 
             //Cita
             if (this.Cita.length < 501 && this.Cita != "" && !isNaN (this.Cita) === false){
-              console.log("Cita correcta")
+              console.log("CITA :SI")
             }else{
-              console.log("Escribe una cita")
+              console.log("ESCRIBE UNA CITA")
               return false
             }
 
             //CitaAutor
             if (this.CitaAutor.length < 501 && this.CitaAutor != "" && !isNaN (this.CitaAutor) === false){
-              console.log("CitaAutor existe")
+              console.log("CitaAutor: SI")
             }else{
-              console.log("Escribe una CitaAutor")
+              console.log("ESCRIBE UNA CitaAutor")
               return false
             }
 
             //Bio
             if (this.Bio.length < 701 && this.Bio != ""){
-              console.log("Bio correcta")
+              console.log("Bio:SI")
             }else{
-              console.log("Bio incorrecta")
+              console.log("ESCRIBE UNA BIO")
               return false
             }
 
@@ -278,7 +278,7 @@ export default {
                        
           }
           else{
-            console.log("No se pudo registrar")
+            console.log("ERROR AL REGISTRAR")
             return false
           }
           
@@ -487,7 +487,9 @@ export default {
 
               <div class="flex justify-between px-3  ">
                 <label class="text-black text-left md:text-left my-2 md:mb-0">
-                 Extrovertido: <br>  {{ this.Personalidad1 }}%
+                 Extrovertido: 
+                 <br> 
+                  {{ this.Personalidad1 }}%
                 </label>
                 
                 <label class="text-black text-end  mr-0 md:text-right my-2 md:mb-0">
@@ -579,9 +581,12 @@ export default {
                     </div>
                     <div class="md:w-2/3">
                     
-                        <InputMot @inputText = "AgregarMotivaciones"  ></InputMot>
+                        <TextA @inputText = "AgregarMotivaciones"  ></TextA>
+                        <br> 
+                       
                         <InputSlider @porcentaje="ValorMotivacion">
-                            
+                        
+                          
                             <h3 class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4">Porcentaje</h3>
                         
                         </InputSlider>
